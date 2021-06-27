@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Investimentos.API.Data;
 using Investimentos.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,42 +13,24 @@ namespace Investimentos.API.Controllers
     [Route("api/[controller]")]
     public class TransacaoController : ControllerBase
     {
-        public IEnumerable<Transacao> _transacao = new Transacao[] {
-            new Transacao(){
-                Id = 1,
-                DataCompra = DateTime.Now.AddDays(2),
-                ValorCompra = 2.50,
-                QuantidadeCompra = 11,
-                TotalValorCompra = 2.50 * 11,
-                IdAtivo = 1,
-                IdTipoAtivo = 1
-            },
-            new Transacao(){
-                Id = 2,
-                DataCompra = DateTime.Now.AddDays(5),
-                ValorCompra = 6.50,
-                QuantidadeCompra = 35,
-                TotalValorCompra = 6.50 * 35,
-                IdAtivo = 2,
-                IdTipoAtivo = 1
-            }
-        };
-        
-        public TransacaoController()
+        private readonly DataContext _context;
+
+        public TransacaoController(DataContext context)
         {
-           
+            _context = context;
+
         }
 
         [HttpGet]
         public IEnumerable<Transacao> Get()
         {
-            return _transacao;
+            return _context.Transacoes;
         }
 
         [HttpGet("{id}")]
-        public IEnumerable<Transacao> GetById(int id)
+        public Transacao GetById(int id)
         {
-            return _transacao.Where(t => t.Id == id);
+            return _context.Transacoes.FirstOrDefault(t => t.Id == id);
         }
 
         [HttpPost]
@@ -68,6 +51,6 @@ namespace Investimentos.API.Controllers
             return $"Exemplo Delete com id = {id}";
         }
 
-        
+
     }
 }
