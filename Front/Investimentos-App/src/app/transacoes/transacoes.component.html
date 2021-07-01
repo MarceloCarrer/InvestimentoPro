@@ -1,0 +1,9 @@
+<h2>Transacoes do Component</h2>
+
+<div *ngFor="let transacao of transacoes">
+  <p><b>Compra: </b> R$ {{transacao.valorCompra}}</p>
+  <p><b>Quantidade Compra:</b> {{transacao.quantidadeCompra}}</p>
+  <p><b>Total Compra: </b> R$ {{transacao.valorCompra * transacao.quantidadeCompra}}</p>
+  <hr>
+</div>
+

@@ -8,29 +8,29 @@ namespace Investimentos.API.Models
 
         public DateTime DataCompra { get; set; }
 
-        public double ValorCompra { get; set; }
+        public decimal ValorCompra { get; set; }
 
         public int QuantidadeCompra { get; set; }
 
-        public double TotalValorCompra { get; set; }
+        public decimal TotalValorCompra { get; set; }
 
         public DateTime? DataVenda { get; set; }
 
-        public double? ValorVenda { get; set; }
+        public decimal? ValorVenda { get; set; }
 
         public int? QuantidadeVenda { get; set; }
 
-        public double? ValorTotalVenda { get; set; }
+        public decimal? ValorTotalVenda { get; set; }
 
-        public double? Lucro { get; set; }
+        public decimal? Lucro { get; set; }
 
-        public double? ValorLucro { get; set; }
+        public decimal? ValorLucro { get; set; }
 
-        public double? ValorImposto { get; set; }
+        public decimal? ValorImposto { get; set; }
 
-        public double? ValorLucroLiquido { get; set; }
+        public decimal? ValorLucroLiquido { get; set; }
 
-        public double? ValorVendaLiquida { get; set; }
+        public decimal? ValorVendaLiquida { get; set; }
 
         public int IdAtivo { get; set; }
 

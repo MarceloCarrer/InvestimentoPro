@@ -11,11 +11,11 @@ namespace Investimentos.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TransacaoController : ControllerBase
+    public class TransacoesController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public TransacaoController(DataContext context)
+        public TransacoesController(DataContext context)
         {
             _context = context;
 
